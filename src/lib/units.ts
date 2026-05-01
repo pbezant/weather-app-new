@@ -16,7 +16,7 @@ export function formatTemp(value: number, units: Units): string {
   return `${Math.round(value)}°${units === 'imperial' ? 'F' : 'C'}`
 }
 
-export function formatTempValue(value: number, units: Units): number {
+export function formatTempValue(value: number): number {
   return Math.round(value)
 }
 
