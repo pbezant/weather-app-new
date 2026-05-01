@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "./themes.css";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* shadcn design token bridge — shadcn components read these HSL values */
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 224 71% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 224 71% 4%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 224 71% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 224 71% 4%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 215 28% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 224 71% 4%;
+  }
+}
+
+/* Smooth theme transitions on custom properties */
+@property --weather-bg-from { syntax: '<color>'; inherits: true; initial-value: #e0f2fe; }
+@property --weather-bg-mid  { syntax: '<color>'; inherits: true; initial-value: #bae6fd; }
+@property --weather-bg-to   { syntax: '<color>'; inherits: true; initial-value: #0ea5e9; }
+@property --weather-accent  { syntax: '<color>'; inherits: true; initial-value: #f59e0b; }
+@property --weather-ink     { syntax: '<color>'; inherits: true; initial-value: #0c4a6e; }
+
+html {
+  transition:
+    --weather-bg-from 1s ease,
+    --weather-bg-mid  1s ease,
+    --weather-bg-to   1s ease,
+    --weather-accent  1s ease,
+    --weather-ink     1s ease;
+}
+
+/* Glass card utility */
+.glass-card {
+  background: color-mix(in srgb, var(--weather-bg-from) 40%, white 60%);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid color-mix(in srgb, white 50%, transparent);
+}
+
+[data-weather*="night"] .glass-card,
+[data-weather="thunderstorm"] .glass-card {
+  background: color-mix(in srgb, var(--weather-bg-from) 50%, black 50%);
+  border-color: color-mix(in srgb, white 20%, transparent);
+}

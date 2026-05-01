@@ -1,0 +1,27 @@
+/* Meteocons ships with hardcoded fills/strokes.
+   These overrides layer our weather-theme CSS vars on top of the relevant paths
+   to make the icons respond to theme changes.
+   We override only the sky/background fills — the icon "character" colors stay as-is. */
+
+@media (prefers-reduced-motion: reduce) {
+  .weather-icon * {
+    animation-play-state: paused !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Sun / moon color driven by accent var */
+[data-weather="clear-day"] .weather-icon circle,
+[data-weather="partly-cloudy-day"] .weather-icon circle {
+  fill: var(--weather-accent);
+}
+
+[data-weather="clear-night"] .weather-icon circle {
+  fill: #c7d2fe;
+}
+
+/* Lightning bolt accent for thunderstorm */
+[data-weather="thunderstorm"] .weather-icon [fill="#f0c419"],
+[data-weather="thunderstorm"] .weather-icon [fill="#f4a71d"] {
+  fill: var(--weather-accent);
+}

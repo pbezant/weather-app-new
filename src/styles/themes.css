@@ -1,0 +1,123 @@
+/* Weather-reactive theme palettes
+   Each block sets the CSS custom properties that the rest of the app reads.
+   The `data-weather` attribute is set on <html> by WeatherThemeProvider. */
+
+[data-weather="clear-day"] {
+  --weather-bg-from: #bfdbfe;   /* blue-200 */
+  --weather-bg-mid:  #7dd3fc;   /* sky-300 */
+  --weather-bg-to:   #0ea5e9;   /* sky-500 */
+  --weather-accent:  #f59e0b;   /* amber-400 — sun */
+  --weather-ink:     #0c4a6e;   /* sky-900 */
+  --weather-ink-muted: #075985; /* sky-800 */
+  --weather-card-bg: rgba(224, 242, 254, 0.55);
+  --weather-card-border: rgba(186, 230, 253, 0.6);
+  --weather-sun-opacity: 1;
+}
+
+[data-weather="clear-night"] {
+  --weather-bg-from: #1e1b4b;   /* indigo-950 */
+  --weather-bg-mid:  #312e81;   /* indigo-900 */
+  --weather-bg-to:   #0f172a;   /* slate-950 */
+  --weather-accent:  #e2e8f0;   /* slate-200 — moon */
+  --weather-ink:     #e2e8f0;   /* slate-200 */
+  --weather-ink-muted: #94a3b8; /* slate-400 */
+  --weather-card-bg: rgba(30, 27, 75, 0.55);
+  --weather-card-border: rgba(99, 102, 241, 0.3);
+  --weather-sun-opacity: 0;
+}
+
+[data-weather="partly-cloudy-day"] {
+  --weather-bg-from: #dbeafe;   /* blue-100 */
+  --weather-bg-mid:  #bae6fd;   /* sky-200 */
+  --weather-bg-to:   #38bdf8;   /* sky-400 */
+  --weather-accent:  #f59e0b;
+  --weather-ink:     #1e3a5f;
+  --weather-ink-muted: #1e40af;
+  --weather-card-bg: rgba(219, 234, 254, 0.55);
+  --weather-card-border: rgba(147, 197, 253, 0.6);
+  --weather-sun-opacity: 0.8;
+}
+
+[data-weather="partly-cloudy-night"] {
+  --weather-bg-from: #1e293b;   /* slate-800 */
+  --weather-bg-mid:  #0f172a;   /* slate-950 */
+  --weather-bg-to:   #020617;   /* slate-990 */
+  --weather-accent:  #cbd5e1;   /* slate-300 */
+  --weather-ink:     #e2e8f0;
+  --weather-ink-muted: #94a3b8;
+  --weather-card-bg: rgba(30, 41, 59, 0.6);
+  --weather-card-border: rgba(148, 163, 184, 0.2);
+  --weather-sun-opacity: 0;
+}
+
+[data-weather="cloudy"] {
+  --weather-bg-from: #e2e8f0;   /* slate-200 */
+  --weather-bg-mid:  #cbd5e1;   /* slate-300 */
+  --weather-bg-to:   #94a3b8;   /* slate-400 */
+  --weather-accent:  #64748b;
+  --weather-ink:     #1e293b;
+  --weather-ink-muted: #475569;
+  --weather-card-bg: rgba(226, 232, 240, 0.6);
+  --weather-card-border: rgba(203, 213, 225, 0.7);
+  --weather-sun-opacity: 0;
+}
+
+[data-weather="fog"] {
+  --weather-bg-from: #e2e8f0;
+  --weather-bg-mid:  #d1d5db;
+  --weather-bg-to:   #9ca3af;
+  --weather-accent:  #6b7280;
+  --weather-ink:     #1f2937;
+  --weather-ink-muted: #4b5563;
+  --weather-card-bg: rgba(229, 231, 235, 0.65);
+  --weather-card-border: rgba(209, 213, 219, 0.7);
+  --weather-sun-opacity: 0;
+}
+
+[data-weather="drizzle"] {
+  --weather-bg-from: #dbeafe;
+  --weather-bg-mid:  #93c5fd;
+  --weather-bg-to:   #3b82f6;
+  --weather-accent:  #93c5fd;
+  --weather-ink:     #1e3a5f;
+  --weather-ink-muted: #1d4ed8;
+  --weather-card-bg: rgba(219, 234, 254, 0.55);
+  --weather-card-border: rgba(147, 197, 253, 0.5);
+  --weather-sun-opacity: 0;
+}
+
+[data-weather="rain"] {
+  --weather-bg-from: #1e3a5f;   /* deep blue */
+  --weather-bg-mid:  #1e40af;   /* blue-800 */
+  --weather-bg-to:   #1d4ed8;   /* blue-700 */
+  --weather-accent:  #60a5fa;
+  --weather-ink:     #dbeafe;
+  --weather-ink-muted: #93c5fd;
+  --weather-card-bg: rgba(30, 58, 95, 0.55);
+  --weather-card-border: rgba(96, 165, 250, 0.3);
+  --weather-sun-opacity: 0;
+}
+
+[data-weather="snow"] {
+  --weather-bg-from: #e0f2fe;   /* sky-100 */
+  --weather-bg-mid:  #f0f9ff;   /* sky-50 */
+  --weather-bg-to:   #bae6fd;   /* sky-200 */
+  --weather-accent:  #7dd3fc;   /* sky-300 */
+  --weather-ink:     #0c4a6e;
+  --weather-ink-muted: #075985;
+  --weather-card-bg: rgba(240, 249, 255, 0.7);
+  --weather-card-border: rgba(186, 230, 253, 0.8);
+  --weather-sun-opacity: 0;
+}
+
+[data-weather="thunderstorm"] {
+  --weather-bg-from: #1e1b4b;   /* indigo-950 */
+  --weather-bg-mid:  #312e81;   /* indigo-900 */
+  --weather-bg-to:   #1e293b;   /* slate-800 */
+  --weather-accent:  #fbbf24;   /* amber-400 — lightning */
+  --weather-ink:     #e2e8f0;
+  --weather-ink-muted: #94a3b8;
+  --weather-card-bg: rgba(30, 27, 75, 0.6);
+  --weather-card-border: rgba(251, 191, 36, 0.3);
+  --weather-sun-opacity: 0;
+}
